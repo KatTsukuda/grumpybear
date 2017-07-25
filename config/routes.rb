@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :users
+  resources :users, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :action_takers
   resources :campaigns
 
