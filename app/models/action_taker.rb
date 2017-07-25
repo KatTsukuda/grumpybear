@@ -1,0 +1,2 @@
+class ActionTaker < ApplicationRecord
+end
