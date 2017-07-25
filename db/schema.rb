@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725181133) do
+ActiveRecord::Schema.define(version: 20170725182839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(version: 20170725181133) do
     t.integer "target_signers_goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "action_taker_id"
+    t.index ["action_taker_id"], name: "index_campaigns_on_action_taker_id"
+    t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +52,6 @@ ActiveRecord::Schema.define(version: 20170725181133) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "campaigns", "action_takers"
+  add_foreign_key "campaigns", "users"
 end
