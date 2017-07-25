@@ -1,0 +1,2 @@
+class ActionTakersController < ApplicationController
+end
