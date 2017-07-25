@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: [:new, :create]
+
   before_action :require_ownership, only: [:edit, :update, :destroy]
 
   def new
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      login(@user)
+      @user
       redirect_to user_path(@user)
     else
       flash[:error] = @user.errors.full_messages
@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
     def show
       set_user
-      render template: "users/show"
     end
 
   end

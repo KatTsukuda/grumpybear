@@ -1,0 +1,13 @@
+<%= form_for :session, url: sessions_path do |form| %>
+  <div class="text-field">
+    <%= form.label "Email" %>
+    <%= form.text_field :email, type: 'email', class: "form-control" %>
+  </div>
+  <div class="text-field">
+    <%= form.label "Password" %>
+    <%= form.password_field :password_digest, class: "form-control" %>
+  </div>
+  <div class="submit-field">
+    <%= form.submit 'Log In' %>
+  </div>
+<% end %>
