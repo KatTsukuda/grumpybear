@@ -1,18 +1,13 @@
 <div class="text-field">
-  <%= form.label :org_name %>
-  <%= form.text_field :org_name, class: "form-control" %>
+  <div class="form-label"><%= form.label "Organization Name" %></div>
+  <%= form.text_field :org_name %>
 </div>
 <div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, class: "form-control" %>
+  <div class="form-label"><%= form.label :email %></div>
+  <%= form.text_field :email %>
 </div>
-<div class="text-field">
-  <%= form.label "Country" %>
-  <!-- <%= form.text_field :country, class: "form-control" %> -->
-  <%= render partial: '/users/country' %>
-</div>
-</div>
-<div class="text-field">
-  <%= form.label :zip_code %>
-  <%= form.text_field :zip_code, class: "form-control" %>
-</div>
+<div class="form-label"><%= form.label "Country" %></div>
+<!-- <%= form.text_field :country %> -->
+<%= render partial: '/users/country' %>
+<div class="form-label"><%= form.label :zip_code %></div>
+<%= form.text_field :zip_code %>

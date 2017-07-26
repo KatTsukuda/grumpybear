@@ -14,3 +14,80 @@
  *= require_tree .
  *= require_self
  */
+
+ /* FONTS!
+ font-family: 'Poppins', sans-serif;
+ font-family: 'Muli', sans-serif;
+ */
+@import url('https://fonts.googleapis.com/css?family=Muli|Poppins');
+
+ /* forms! */
+.form {
+  border: 1px solid;
+  border-color: #ad4574;
+  padding: 50px;
+  text-align: center;
+}
+
+input, select, .submit-btn {
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+  border-style: hidden;
+  background: transparent;
+}
+
+input {
+  border-bottom: 1px solid;
+}
+
+.submit-btn, select {
+  border: 1px solid;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  background-color: #ae6d8b;
+  color: #fff;
+  border-color: #ad4574;
+  font-family: 'Poppins', sans-serif;
+  padding: 8px 0;
+}
+
+div.form-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: 'Muli', sans-serif;
+  text-align: left;
+}
+
+select {
+  background: transparent;
+}
+
+/* headers! */
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3.org_name {
+  text-align: left;
+}
+/* lists! */
+
+li, a {
+  list-style: none;
+  color: #545454;
+  text-transform: capitalize;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+/* special icons! */
+.add-new {
+  width: 15px;
+}
