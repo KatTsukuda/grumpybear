@@ -1,0 +1,5 @@
+<%= form_for @campaign do |form| %>
+  <%= render partial: '/campaigns/form', object: form %>
+  <div class="submit-field">
+  <%= form.submit 'Create Campaign' %>
+<% end %>
