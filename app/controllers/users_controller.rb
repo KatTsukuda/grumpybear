@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 
   before_action :require_ownership, only: [:edit, :update, :destroy]
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -10,19 +14,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user
       redirect_to user_path(@user)
     else
       flash[:error] = @user.errors.full_messages
       redirect_to new_user_path
     end
-
-    def show
-      set_user
-    end
-
   end
 
+  def show
+    set_user
+  end
 
   private
 
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:org_name, :email, :password, :country, :zip_code)
+    params.require(:user).permit(:org_name, :email, :password_digest, :country, :zip_code)
   end
 
 end
