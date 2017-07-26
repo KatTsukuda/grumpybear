@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :action_takers
-  resources :campaigns
+  resources :campaigns do
+    resources :action_takers, shallow: true
+  end
 end
