@@ -31,8 +31,8 @@ development:
   # the same name as the operating system user that initialized the database.
   #username: grumpybear
 
-  # The password associated with the postgres role (username).
-  #password:
+  # The :password_digest associated with the postgres role (username).
+  #:password_digest:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -60,10 +60,10 @@ test:
   database: grumpybear_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
-# like your database password, in your source code. If your source code is
+# like your database :password_digest, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
 #
-# Instead, provide the password as a unix environment variable when you boot
+# Instead, provide the :password_digest as a unix environment variable when you boot
 # the app. Read http://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full rundown on how to provide these environment variables in a
 # production deployment.
@@ -82,4 +82,4 @@ production:
   <<: *default
   database: grumpybear_production
   username: grumpybear
-  password: <%= ENV['GRUMPYBEAR_DATABASE_PASSWORD'] %>
+  :password_digest: <%= ENV['GRUMPYBEAR_DATABASE_:password_digest'] %>

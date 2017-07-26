@@ -1,0 +1,10 @@
+<%= form_for @user do |form| %>
+  <%= render partial: '/users/form', object: form %>
+  <div class="submit-field">
+  <div class="text-field">
+    <%= form.label "Password" %>
+    <%= form.password_field :password, class: "form-control" %>
+  </div>
+    <%= form.submit 'Create Account'  %>
+  </div>
+<% end %>

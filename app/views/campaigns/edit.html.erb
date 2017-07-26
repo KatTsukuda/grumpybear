@@ -1,0 +1,9 @@
+<h1> Update Campaign</h1>
+<%= form_for @campaign do |form| %>
+<div class="text-area form-group">
+  <%= render partial: '/campaigns/form', object: form %><br>
+  <div class="submit-field">
+    <%= form.submit "Update" %>
+  </div>
+</div>
+<% end %>

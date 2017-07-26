@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725182839) do
+ActiveRecord::Schema.define(version: 20170726083924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170725182839) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "campaign_id"
+    t.index ["campaign_id"], name: "index_action_takers_on_campaign_id"
   end
 
   create_table "campaigns", force: :cascade do |t|
@@ -42,6 +44,18 @@ ActiveRecord::Schema.define(version: 20170725182839) do
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "org_name"
     t.string "email"
@@ -50,8 +64,10 @@ ActiveRecord::Schema.define(version: 20170725182839) do
     t.string "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
+  add_foreign_key "action_takers", "campaigns"
   add_foreign_key "campaigns", "action_takers"
   add_foreign_key "campaigns", "users"
 end
