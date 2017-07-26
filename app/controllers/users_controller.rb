@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  before_action :require_ownership, only: [:edit, :update, :destroy]
-
   def index
     @users = User.all
   end
@@ -14,11 +12,34 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_path(@user)
+      log_in @user
+      redirect_to @user
     else
       flash[:error] = @user.errors.full_messages
-      redirect_to new_user_path
+      render 'new'
     end
+
+  end
+
+  def edit
+    set_user
+
+    if current_user.id != @user.id
+      flash[:error] = "Restricted access. This is not your profile to edit."
+      redirect_to user_path(set_user)
+    end
+  end
+
+  def update
+    set_user
+
+    if set_user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      redirect to user_path(@user)
+      flash[:error] = @user.errors.full_messages
+    end
+
   end
 
   def show
@@ -32,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:org_name, :email, :password_digest, :country, :zip_code)
+    params.require(:user).permit(:org_name, :email, :password, :country, :zip_code)
   end
 
 end
