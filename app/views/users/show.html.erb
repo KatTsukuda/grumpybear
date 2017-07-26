@@ -2,7 +2,8 @@
   <%= @user.org_name%>
   <% if @user == current_user %>
   <%= link_to glyph(:pencil), edit_user_path(@user) %>
+  <%= link_to glyph(:remove), @user, method: :delete, data: {confirm: "Are you sure?"} %>
 <% end %>
 </h1>
 <p> Email: <%= @user.email %> </p>
-<p> Country: <%= @user.zip_code %> </p>
+<p> Country: <%= @user.country %> </p>

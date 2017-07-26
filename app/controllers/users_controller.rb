@@ -44,6 +44,22 @@ class UsersController < ApplicationController
 
   def show
     set_user
+
+    if !set_user
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    set_user
+    set_user.destroy
+    redirect_to root_path
+
+    if current_user != set_user
+      flash[:error] = "Restricted access. You are not authorized to delete this account."
+      redirect_to user_path(@user)
+    end
+
   end
 
   private
