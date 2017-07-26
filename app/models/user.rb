@@ -4,7 +4,6 @@ class User < ApplicationRecord
   friendly_id :org_name, use: [:slugged, :finders]
 
   has_many :campaigns
-  has_many :action_takers
 
   # before_save { self.email = email }
   validates :org_name,  presence: true, length: { maximum: 50 }
