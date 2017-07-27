@@ -14,10 +14,6 @@
   <%= @campaign.description %>
 </section>
 
-<div id="ProgressBar"></div>
-
-</div>
-
 <div class="action-form col-md-5 col-sm-6 col-xs-10">
   <h3 class="CTA"><%= @campaign.call_to_action %></h3>
   <%= render partial: '/action_takers/takeaction', object: @campaign, as: 'action_taker' %>

@@ -11,6 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap-3.3.7.min
+ *= require tether
+ *= require tether-theme-basic
+ *= require tether-theme-arrows
+ *= require tether-theme-arrows-dark
  *= require_tree .
  *= require_self
  */

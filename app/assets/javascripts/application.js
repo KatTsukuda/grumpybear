@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require tether
 //= require bootstrap
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+// progressbar.js@1.0.0 version is used
+// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
