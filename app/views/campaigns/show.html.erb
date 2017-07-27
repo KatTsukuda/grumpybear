@@ -1,3 +1,4 @@
+  <%= image_tag(@campaign.image_url.to_s, size: "100", alt: "Edit Entry") %>
 <h1 class="campaign-title">
   <%= @campaign.campaign_title %>
   <% if @campaign.user == current_user %>
@@ -5,8 +6,6 @@
     <%= link_to "Delete", @campaign, method: :delete, data: {confirm: "Are you sure?"} %>
   <% end %>
 </h1>
-
-<%= image_tag(@user.image_url.to_s) %>
 
 <section class="cmpgn-tgt">
   campaign target: <%= @campaign.target_name %>
