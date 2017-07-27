@@ -47,7 +47,10 @@ ul.nav-links, .nav-links li a {
   padding: 50px;
   text-align: center;
 }
-
+textarea {
+  width: 100%;
+  height: 200px;
+}
 input, select, .submit-btn {
   position: relative;
   margin-bottom: 10px;
@@ -112,6 +115,6 @@ li, a {
   width: 15px;
 }
 
-select#user_country.form-label {
-  border-radius: 0px;
+.petition-icon {
+  height: 50px;
 }

@@ -1,4 +1,7 @@
 class CampaignsController < ApplicationController
+  before_action :require_login, only: [:new, :create]
+  before_action :campaign_owner, only: [:edit, :update, :destroy]
+
   def index
     @campaigns = Campaign.all
   end
@@ -43,6 +46,14 @@ class CampaignsController < ApplicationController
   end
 
   private
+
+    def require_login
+      unless logged_in?
+        flash[:error] = "You must be logged in to access this section."
+        redirect_to login_path
+      end
+    end
+
     def set_campaign
       @campaign = Campaign.friendly.find(params[:id])
     end

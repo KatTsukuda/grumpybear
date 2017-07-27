@@ -1,12 +1,21 @@
 <nav>
   <ul class="nav-links">
     <% if current_user %>
-      <li><%= link_to "Log out", logout_path %></li>
+      <div class="left-nav">
+        <li><%= link_to "Home", root_path %></li>
+      </div>
+      <div class="right-nav">
+        <li><%= link_to "Campaigns", campaigns_path %></li>
+        <li><%= link_to "Log out", logout_path %></li>
+      </div>
     <% else %>
     <div class="left-nav">
-      <li><%= link_to "Campaigns", campaigns_path %></li>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to image_tag('petition-icon.png', :alt => "Start a petition", :class => "petition-icon"), new_campaign_path(@user) %></li>
+      <li><%= link_to "Start a petition", new_campaign_path(@user) %></li>
     </div>
     <div class="right-nav">
+      <li><%= link_to "Campaigns", campaigns_path %></li>
       <li><%= link_to "Sign up", new_user_path %></li>
       <li><%= link_to "Log in", login_path %></li>
     </div>

@@ -1,5 +1,6 @@
-<%= form_for @campaign do |form| %>
-  <%= render partial: '/campaigns/form', object: form %>
-  <div class="submit-field">
-  <%= form.submit 'Create Campaign' %>
-<% end %>
+<div class="form col-md-5 col-sm-6 col-xs-10 col-sm-offset-4">
+  <%= form_for @campaign do |form| %>
+    <%= render partial: '/campaigns/form', object: form %>
+    <%= form.submit 'Create Campaign', class:"submit-btn" %>
+  <% end %>
+</div>

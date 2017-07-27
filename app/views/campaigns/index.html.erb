@@ -1,3 +1,7 @@
 <h1>Campaigns</h1>
 
-<%= link_to "Create a new campaign.", new_campaign_path %>
+<div class="campaigns-list">
+  <% @campaigns.each do |cmpgn| %>
+    <p><%= link_to cmpgn.campaign_title, campaign_path(cmpgn) %></p>
+  <% end %>
+</div>
