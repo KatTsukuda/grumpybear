@@ -21,6 +21,12 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Muli|Poppins');
 
+@media only screen and (max-device-width: 480px) {
+  * {
+    width: 100%
+  }
+}
+
 /* navbar! */
 .right-nav {
   text-align: right;
@@ -28,7 +34,7 @@
 
 .left-nav {
   text-align: left;
-  margin-bottom: -35px;
+  margin-bottom: -51px;
 }
 
 ul.nav-links {
@@ -40,27 +46,32 @@ ul.nav-links, .nav-links li a {
   font-size: 15px;
 }
 
-/* forms! */
+/* general forms! */
 .form {
   border: 1px solid;
   border-color: #ad4574;
   padding: 50px;
   text-align: center;
 }
+
 textarea {
   width: 100%;
   height: 200px;
 }
+
 input, select, .submit-btn {
   position: relative;
   margin-bottom: 10px;
   width: 100%;
   border-style: hidden;
-  background: transparent;
+  background: #fff;
 }
 
 input {
-  border-bottom: 1px solid;
+  border: 1px solid;
+  height: 35px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .submit-btn, select {
@@ -84,22 +95,21 @@ div.form-label {
 }
 
 select {
-  background: transparent;
+  background: #fff;
 }
 
 /* headers! */
-
 h1, h2, h3, h4, h5 {
   font-family: 'Poppins', sans-serif;
   text-align: center;
   text-transform: uppercase;
 }
 
-h3.org_name {
+h3.org_name, .campaign-title {
   text-align: left;
 }
-/* lists! */
 
+/* lists! */
 li, a {
   list-style: none;
   color: #545454;
@@ -108,6 +118,42 @@ li, a {
   font-family: 'Poppins', sans-serif;
   text-align: center;
   display: inline-block;
+}
+
+/* campagins and action forms! */
+.action-form {
+  float: right;
+  background-color: #fcf6e3;
+  padding: 0 25px 15px 25px;
+}
+
+.CTA {
+  padding-bottom: 30px;
+}
+
+@media (min-width:100px) {
+  .action-form {
+    width: 415px;
+    margin-top: 15px;
+  }
+}
+
+@media (min-width:500px) {
+  .cmpgn-descrip, .cmpgn-tgt, .campaign-title {
+    width: 52%;
+  }
+}
+
+.cmpgn-descrip {
+  font-size: 18px;
+  font-family: 'Muli', sans-serif;
+}
+
+.cmpgn-tgt {
+    font-size: 22px;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
 }
 
 /* special icons! */

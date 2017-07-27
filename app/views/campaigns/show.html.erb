@@ -1,4 +1,4 @@
-<h1>
+<h1 class="campaign-title">
   <%= @campaign.campaign_title %>
   <% if @campaign.user == current_user %>
     <%= link_to "Edit", edit_campaign_path(@campaign) %>
@@ -6,8 +6,19 @@
   <% end %>
 </h1>
 
-<p><%= @campaign.description %></p>
+<section class="cmpgn-tgt">
+  campaign target: <%= @campaign.target_name %>
+</section>
 
-<div class="action_box">
+<section class="cmpgn-descrip">
+  <%= @campaign.description %>
+</section>
+
+<div id="ProgressBar"></div>
+
+</div>
+
+<div class="action-form col-md-5 col-sm-6 col-xs-10">
+  <h3 class="CTA"><%= @campaign.call_to_action %></h3>
   <%= render partial: '/action_takers/takeaction', object: @campaign, as: 'action_taker' %>
 </div>
