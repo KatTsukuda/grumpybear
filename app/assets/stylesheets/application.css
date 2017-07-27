@@ -21,7 +21,26 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Muli|Poppins');
 
- /* forms! */
+/* navbar! */
+.right-nav {
+  text-align: right;
+}
+
+.left-nav {
+  text-align: left;
+  margin-bottom: -35px;
+}
+
+ul.nav-links {
+  padding: 0px;
+}
+
+ul.nav-links, .nav-links li a {
+  padding-top: 15px;
+  font-size: 15px;
+}
+
+/* forms! */
 .form {
   border: 1px solid;
   border-color: #ad4574;
@@ -85,9 +104,14 @@ li, a {
   font-size: 20px;
   font-family: 'Poppins', sans-serif;
   text-align: center;
+  display: inline-block;
 }
 
 /* special icons! */
 .add-new {
   width: 15px;
+}
+
+select#user_country.form-label {
+  border-radius: 0px;
 }
