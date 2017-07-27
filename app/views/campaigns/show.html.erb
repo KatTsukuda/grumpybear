@@ -6,6 +6,8 @@
   <% end %>
 </h1>
 
+<%= image_tag(@user.image_url.to_s) %>
+
 <section class="cmpgn-tgt">
   campaign target: <%= @campaign.target_name %>
 </section>

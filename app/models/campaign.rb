@@ -2,6 +2,10 @@ class Campaign < ApplicationRecord
   belongs_to :user
   has_many :action_takers
 
+  # carrierwave! image uploader gem :D
+  validates_presence_of :image
+  mount_uploader :image, ImageUploader
+
   validates :category,  presence: true, length: { maximum: 50 }
   validates :campaign_title,  presence: true, length: { maximum: 50 }
   validates :description,  presence: true, length: { maximum: 500 }

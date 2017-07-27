@@ -38,6 +38,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'bootstrap'
 gem 'validates_zipcode'
 gem 'tether-rails'
+gem 'mini_magick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

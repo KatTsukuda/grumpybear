@@ -12,3 +12,5 @@
 <%= form.text_field :target_name %>
 <div class="form-label"><%= form.label :target_signers_goal %></div>
 <%= render partial: '/campaigns/targetgoal' %>
+<div class="form-label"><%= form.label :image %> </div>
+<%= form.file_field :image %>

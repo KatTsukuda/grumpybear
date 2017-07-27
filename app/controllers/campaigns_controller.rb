@@ -59,7 +59,7 @@ class CampaignsController < ApplicationController
     end
 
     def campaign_params
-      params.require(:campaign).permit(:category, :campaign_title, :description, :call_to_action, :target_email, :target_name, :target_signers_goal, :user_id, :action_taker_id, :attributes, action_takers_attributes: [:action_takers, :attributes])
+      params.require(:campaign).permit(:category, :campaign_title, :description, :call_to_action, :target_email, :target_name, :target_signers_goal, :user_id, :action_taker_id, :image, :attributes, action_takers_attributes: [:action_takers, :attributes])
     end
 
     def campaign_owner
