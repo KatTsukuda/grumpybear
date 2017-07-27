@@ -1,8 +1,4 @@
 class User < ApplicationRecord
-  # Friendly ID for users!
-  extend FriendlyId
-  friendly_id :org_name, use: [:slugged, :finders]
-
   has_many :campaigns
 
   # before_save { self.email = email }
@@ -11,21 +7,25 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+  # PASSWORD FUN!
+  PASSWORD_FORMAT = /\A
+    (?=.*\d)           # Must contain a digit
+    (?=.*[a-z])        # Must contain a lower case character
+    (?=.*[A-Z])        # Must contain an upper case character
+    (?=.*[[:^alnum:]]) # Must contain a symbol
+  /x
+
+  validates :password, presence: true,
+            length: { in: 6..20 },
+            format: { with: PASSWORD_FORMAT,
+            message: "must contain a digit, a lower case character, an upper case character, and a symbol." },
+            on: [:create, :update]
+
   has_secure_password
 
-  # Returns the hash digest of the given string.
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-    BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
-
-  def password=(password)
-    self.password_digest = BCrypt::Password.create(password)
-  end
-
-  def is_password?(password)
-    BCrypt::Password.new(self.password_digest) == password
-  end
+  # Friendly ID for users!
+  extend FriendlyId
+  friendly_id :org_name, use: [:slugged, :finders]
 
 end

@@ -15,6 +15,8 @@
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
 
+  <%= render partial: '/layouts/navbar'%>
+
   <body class="container">
     <%= yield %>
   </body>
