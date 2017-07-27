@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to @user
     else
-      flash[:error] = @user.errors.full_messages
+      flash[:error] = @user.errors.full_messages.to_sentence
       render 'new'
     end
 
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       redirect to user_path(@user)
-      flash[:error] = @user.errors.full_messages
+      flash[:error] = @user.errors.full_messages.to_sentence
     end
 
   end

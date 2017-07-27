@@ -34,8 +34,8 @@ class CampaignsController < ApplicationController
         redirect_to @campaign
     else
       @campaign = Campaign.create
-      flash[:error] = "Oops! The description " + @item.errors.messages[:description][0] + "."
-      redirect_to new_item_path
+      flash[:error] = @campaign.errors.full_messages.to_sentence
+      redirect_to new_campaign_path
     end
   end
 
