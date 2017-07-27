@@ -11,6 +11,11 @@
   <% if flash[:error] %>
     <div class="error"><%= flash[:error] %></div>
   <% end %>
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
+  <%= render partial: '/layouts/navbar'%>
 
   <body class="container">
     <%= yield %>

@@ -24,9 +24,9 @@ class UsersController < ApplicationController
   def edit
     set_user
 
-    if current_user.id != @user.id
-      flash[:error] = "Restricted access. This is not your profile to edit."
-      redirect_to user_path(set_user)
+    if current_user != set_user
+      flash[:error] = "Restricted access. You are not authorized to edit this account."
+      redirect_to user_path(@user)
     end
   end
 
@@ -51,13 +51,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    set_user
-    set_user.destroy
-    redirect_to root_path
 
     if current_user != set_user
       flash[:error] = "Restricted access. You are not authorized to delete this account."
       redirect_to user_path(@user)
+    else
+      set_user
+      @user.destroy
+      flash[:notice] = "Your acccount has been successfully deleted."
+      redirect_to root_path
     end
 
   end

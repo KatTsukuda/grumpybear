@@ -36,6 +36,7 @@ gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.
 
 gem 'carrierwave', '~> 1.0'
 gem 'bootstrap'
+gem 'validates_zipcode'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
