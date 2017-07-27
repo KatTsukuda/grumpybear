@@ -1,5 +1,5 @@
 <div class="form-label"><%= form.label :category %></div>
-<%= form.text_field :category %>
+<%= render partial: '/campaigns/category', object: form %>
 <div class="form-label"><%= form.label :campaign_title %></div>
 <%= form.text_field :campaign_title %>
 <div class="form-label"><%= form.label "Description" %></div>
@@ -11,4 +11,4 @@
 <div class="form-label"><%= form.label :target_name %></div>
 <%= form.text_field :target_name %>
 <div class="form-label"><%= form.label :target_signers_goal %></div>
-<%= form.text_field :target_signers_goal %>
+<%= render partial: '/campaigns/targetgoal' %>
