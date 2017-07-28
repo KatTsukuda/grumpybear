@@ -237,7 +237,7 @@ DEPENDENCIES
   rails (~> 5.1.2)
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
-  searchkick (~> 1.1, >= 1.1.2)
+  searchkick
   spring
   spring-watcher-listen (~> 2.0.0)
   tether-rails

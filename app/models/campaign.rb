@@ -1,4 +1,6 @@
 class Campaign < ApplicationRecord
+  searchkick
+  
   belongs_to :user
   has_many :action_takers
 
