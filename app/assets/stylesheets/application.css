@@ -22,8 +22,9 @@
  /* FONTS!
  font-family: 'Poppins', sans-serif;
  font-family: 'Muli', sans-serif;
+ font-family: 'Nixie One', cursive;
  */
-@import url('https://fonts.googleapis.com/css?family=Muli|Poppins');
+@import url('https://fonts.googleapis.com/css?family=Muli|Poppins|Nixie+One');
 
 @media only screen and (max-device-width: 480px) {
   * {
@@ -108,8 +109,18 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
 }
 
+h1.header {
+  font-family: 'Nixie One', cursive;
+  text-transform: capitalize;
+  font-size: 55px;
+}
+
 h3.org_name, .campaign-title {
   text-align: left;
+}
+
+.tagline {
+  text-align: center;
 }
 
 /* lists! */
@@ -164,13 +175,16 @@ li, a {
 }
 
 /* user profile! */
-p.user-info, small {
+p.user-info, small, .tagline {
   font-family: 'Muli', sans-serif;
-  font-size: 15px;
 }
 
-small {
+small, .tagline {
   color: #ae6d8b;
+}
+
+input#campaign_image {
+  height: 100%;
 }
 
 /* special icons! */
@@ -184,4 +198,12 @@ small {
 
 .petition-icon {
   height: 50px;
+}
+
+/* footer! */
+.footer {
+  position: relative;
+  clear:both;
+  padding:20px 0;
+  font-family: 'Muli', sans-serif;
 }
