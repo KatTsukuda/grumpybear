@@ -17,6 +17,12 @@ class CampaignsController < ApplicationController
   def show
     set_campaign
     @action_taker = ActionTaker.new(campaign_id: @campaign.id)
+    respond_to do |format|
+      format.html
+      format.csv {
+        # here, you want to validate that the current user owns the campaign
+        send_data @campaign.action_takers.to_csv, filename: "action-takers#{Date.today}.csv" }
+    end
   end
 
   def update
