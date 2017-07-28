@@ -1,9 +1,10 @@
 <h1> Update Campaign</h1>
-<%= form_for @campaign do |form| %>
-<div class="text-area form-group">
-  <%= render partial: '/campaigns/form', object: form %><br>
-  <div class="submit-field">
-    <%= form.submit "Update" %>
+
+<div class="form col-md-5 col-sm-6 col-xs-10 col-sm-offset-4">
+  <%= form_for @campaign do |form| %>
+  <div class="text-area form-group">
+    <%= render partial: '/campaigns/form', object: form %><br>
+    <%= form.submit 'Update Campaign', class:"submit-btn" %>
   </div>
+  <% end %>
 </div>
-<% end %>

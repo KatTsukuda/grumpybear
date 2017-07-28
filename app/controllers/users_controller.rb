@@ -86,7 +86,7 @@ class UsersController < ApplicationController
   def user_owner
     set_user
 
-    unless set_user.user_id == current_user.id
+    unless set_user.id == current_user.id
       flash[:notice] = 'Access denied.'
       redirect_to root_path
     end

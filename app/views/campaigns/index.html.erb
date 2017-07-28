@@ -2,7 +2,10 @@
 
 <div class="campaigns-list">
   <% @campaigns.each do |cmpgn| %>
-    <%= image_tag(cmpgn.image_url(:thumb).to_s) %>
-    <p><%= link_to cmpgn.campaign_title, campaign_path(cmpgn) %></p>
+   <h2><%= link_to cmpgn.campaign_title, campaign_path(cmpgn) %></h2>
+    <p>
+      <%= image_tag(cmpgn.image_url.to_s, width: '300px') %>
+      Category: <%= cmpgn.category %>
+    </p>
   <% end %>
 </div>
