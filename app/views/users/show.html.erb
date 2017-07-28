@@ -12,7 +12,6 @@
 
 <h3>
   Current Campaigns
-
   <% if @user.campaigns.count == 0 %>
     Start your first campaign!
     <%= link_to image_tag("heavy-plus-sign.png", :alt => "Add New", :class => "add-new"), new_campaign_path(@user) %>
@@ -23,20 +22,24 @@
 
 </h3>
 
-<table>
-  <% @user.campaigns.each do |cpgn| %>
-    <li><%= link_to cpgn.campaign_title, campaign_path(cpgn) %></li><br>
-    <small><%= cpgn.created_at.strftime("Created on: %b. %d, %Y") %></small><br><br>
-    <p>Category: <%= cpgn.category %></p>
-    <p>Target Goal: <%= number_with_delimiter(cpgn.target_signers_goal.to_i) %> signers</p>
-    <p>
-      <% if cpgn.action_takers.count == 0 %>
-        No signers yet.
-      <% elsif cpgn.action_takers.count == 1 %>
-        1 has signed to date.
-      <% else %>
-        <%= cpgn.action_takers.count %> have signed to date.
+<div class="list-group">
+  <div class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <% @user.campaigns.each do |cpgn| %>
+        <h5 class="mb-1"><%= link_to cpgn.campaign_title, campaign_path(cpgn) %></h5>
+        <small><%= cpgn.created_at.strftime("Created on: %b. %d, %Y") %></small>
+        <p>Category: <%= cpgn.category %></p>
+        <p>Target Goal: <%= number_with_delimiter(cpgn.target_signers_goal.to_i) %> signers</p>
+        <p>
+          <% if cpgn.action_takers.count == 0 %>
+            <span class="badge badge-default badge-pill">No signers yet.</span>
+          <% elsif cpgn.action_takers.count == 1 %>
+            <span class="badge badge-default badge-pill">1 has signed.</span>
+          <% else %>
+            <span class="badge badge-default badge-pill"><%= cpgn.action_takers.count %> have signed.</span>
+          <% end %>
+        </p>
       <% end %>
-    </p>
-  <% end %>
-</table>
+    </div>
+  </div>
+</div>
