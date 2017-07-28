@@ -31,23 +31,19 @@
   }
 }
 
+/* container! */
+.container {
+  margin: 15px 20px 0 50px;
+}
+
 /* navbar! */
-.right-nav {
-  text-align: right;
-}
-
-.left-nav {
-  text-align: left;
-  margin-bottom: -51px;
-}
-
-ul.nav-links {
-  padding: 0px;
-}
-
 ul.nav-links, .nav-links li a {
-  padding-top: 15px;
   font-size: 15px;
+  text-align: center;
+}
+
+li.nav-item {
+  margin: 0 20px;
 }
 
 /* general forms! */
@@ -167,9 +163,23 @@ li, a {
     font-weight: bold;
 }
 
+/* user profile! */
+p.user-info, small {
+  font-family: 'Muli', sans-serif;
+  font-size: 15px;
+}
+
+small {
+  color: #ae6d8b;
+}
+
 /* special icons! */
 .add-new {
   width: 15px;
+}
+
+.profile-icon {
+  height: 30px;
 }
 
 .petition-icon {
