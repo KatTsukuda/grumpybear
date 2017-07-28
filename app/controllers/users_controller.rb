@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :user_owner, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -72,6 +73,15 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:org_name, :email, :password, :country, :zip_code)
+  end
+
+  def user_owner
+    set_user
+
+    unless set_user.user_id == current_user.id
+      flash[:notice] = 'Access denied.'
+      redirect_to root_path
+    end
   end
 
 end

@@ -54,19 +54,18 @@ ul.nav-links, .nav-links li a {
 .form {
   border: 1px solid;
   border-color: #ad4574;
-  padding: 50px;
   text-align: center;
 }
 
 textarea {
-  width: 100%;
+  width: 90%;
   height: 200px;
 }
 
 input, select, .submit-btn {
   position: relative;
   margin-bottom: 10px;
-  width: 100%;
+  width: 90%;
   border-style: hidden;
   background: #fff;
 }
@@ -76,6 +75,10 @@ input {
   height: 35px;
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
+}
+
+input#campaign_image {
+  border: none;
 }
 
 .submit-btn, select {
@@ -128,23 +131,27 @@ li, a {
 .action-form {
   float: right;
   background-color: #fcf6e3;
-  padding: 0 25px 15px 25px;
+  padding-left: 25px;
 }
 
 .CTA {
-  padding-bottom: 30px;
+  padding: 0 12px 30px 12px;
+  margin-left: -25px;
 }
 
 @media (min-width:100px) {
   .action-form {
-    width: 415px;
+    width: 300px;
     margin-top: 15px;
+  }
+  .CTA {
+    font-size: 18px;
   }
 }
 
 @media (min-width:500px) {
   .cmpgn-descrip, .cmpgn-tgt, .campaign-title {
-    width: 52%;
+    width: 100%;
   }
 }
 
