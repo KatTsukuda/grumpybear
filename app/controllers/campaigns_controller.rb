@@ -1,4 +1,7 @@
 class CampaignsController < ApplicationController
+  before_action :require_login, only: [:new, :create]
+  before_action :campaign_owner, only: [:edit, :update, :destroy]
+
   def index
     @campaigns = Campaign.all
   end
@@ -31,8 +34,8 @@ class CampaignsController < ApplicationController
         redirect_to @campaign
     else
       @campaign = Campaign.create
-      flash[:error] = "Oops! The description " + @item.errors.messages[:description][0] + "."
-      redirect_to new_item_path
+      flash[:error] = @campaign.errors.full_messages.to_sentence
+      redirect_to new_campaign_path
     end
   end
 
@@ -43,12 +46,20 @@ class CampaignsController < ApplicationController
   end
 
   private
+
+    def require_login
+      unless logged_in?
+        flash[:error] = "You must be logged in to access this section."
+        redirect_to login_path
+      end
+    end
+
     def set_campaign
       @campaign = Campaign.friendly.find(params[:id])
     end
 
     def campaign_params
-      params.require(:campaign).permit(:category, :campaign_title, :description, :call_to_action, :target_email, :target_name, :target_signers_goal, :user_id, :action_taker_id, :attributes, action_takers_attributes: [:action_takers, :attributes])
+      params.require(:campaign).permit(:category, :campaign_title, :description, :call_to_action, :target_email, :target_name, :target_signers_goal, :user_id, :action_taker_id, :image, :attributes, action_takers_attributes: [:action_takers, :attributes])
     end
 
     def campaign_owner

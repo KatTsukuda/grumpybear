@@ -17,7 +17,7 @@ class ActionTakersController < ApplicationController
       redirect_to campaigns_path
       flash[:notice] = "Thank you for taking action!"
     else
-      flash[:error] = @action_taker.errors.full_messages
+      flash[:error] = @action_taker.errors.full_messages.to_sentence
       redirect_to campaigns_path
     end
 
