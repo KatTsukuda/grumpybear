@@ -27,6 +27,9 @@
         <small><%= cpgn.created_at.strftime("Created on: %b. %d, %Y") %></small>
         <p>Category: <%= cpgn.category %></p>
         <p>Target Goal: <%= number_with_delimiter(cpgn.target_signers_goal.to_i) %> signers</p>
+        <div class="download-csv">
+          <%= link_to image_tag('csv-icon.png', :alt => "CSV download", :class => "csv-icon"), campaign_path(cpgn) + '.csv', {:format => :csv }  %>
+        </div>
         <p>
           <% if cpgn.action_takers.count == 0 %>
             <span class="badge badge-default badge-pill">No signers yet.</span>

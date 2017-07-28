@@ -200,6 +200,10 @@ input#campaign_image {
   height: 50px;
 }
 
+.csv-icon {
+  height: 30px;
+}
+
 /* footer! */
 .footer {
   position: relative;

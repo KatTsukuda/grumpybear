@@ -17,9 +17,6 @@ class ActionTaker < ApplicationRecord
             format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
 
-  validates :country,
-            presence: true
-
   # Export action-takers data to csv
   def self.to_csv
     attributes = %w{id email first_name last_name country}
