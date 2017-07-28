@@ -1,6 +1,11 @@
 class ActionTakersController < ApplicationController
   def index
     @action_takers = ActionTaker.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @action_takers.to_csv, filename: "action-takers#{Date.today}.csv" }
+    end
   end
 
   def new

@@ -1,3 +1,5 @@
 <% @action_takers.each do |action| %>
   <p><%= action.first_name %> <%= action.last_name %>, <%= action.email %> action_id: <%= action.id %> campaign_id: <%= action.campaign_id %></p>
 <% end %>
+
+<%= link_to "CSV for Campaign", {:format => :csv } %>

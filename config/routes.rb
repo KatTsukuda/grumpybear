@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :campaigns do
     resources :action_takers, shallow: true
   end
+
 end

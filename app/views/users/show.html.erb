@@ -10,15 +10,10 @@
 <p class="user-info"> Country: <%= @user.country %> </p>
 <p class="user-info"> Member since: <%= @user.created_at.strftime("%b. %d, %Y") %> </p>
 <p class="user-info"> Campaigns Created: <%= @user.campaigns.count %> </p>
-<p class="user-info"> Campaign Signers: </p>
 
 <h3>
   Current Campaigns
-  <% if @user.campaigns.count == 0 %>
-    Start your first campaign!
-    <%= link_to image_tag("heavy-plus-sign.png", :alt => "Add New", :class => "add-new"), new_campaign_path(@user) %>
-  <% else %>
-    <% @user.campaigns.count %>
+  <% if current_user.campaigns == @user.campaigns %>
     <%= link_to image_tag("heavy-plus-sign.png", :alt => "Add New", :class => "add-new"), new_campaign_path(@user) %>
   <% end %>
 
