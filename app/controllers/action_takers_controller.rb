@@ -8,17 +8,15 @@ class ActionTakersController < ApplicationController
   end
 
   def create
-    # TODO: create an ActionTaker using action_taker_params
-
     @action_taker = ActionTaker.new(action_taker_params)
 
     if @action_taker.valid?
       @action_taker.save!
-      redirect_to campaigns_path
       flash[:notice] = "Thank you for taking action!"
+      redirect_to campaigns_path
     else
       flash[:error] = @action_taker.errors.full_messages.to_sentence
-      redirect_to campaigns_path
+      redirect_to campaign_path(@action_taker.campaign_id)
     end
 
   end

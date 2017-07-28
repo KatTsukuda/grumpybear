@@ -4,6 +4,7 @@ class Campaign < ApplicationRecord
 
   # carrierwave! image uploader gem :D
   validates_presence_of :image
+  validate :image_size_validation
   mount_uploader :image, ImageUploader
 
   validates :category,  presence: true, length: { maximum: 50 }
@@ -20,5 +21,10 @@ class Campaign < ApplicationRecord
   # friendly id!
   extend FriendlyId
   friendly_id :campaign_title
+
+  private
+  def image_size_validation
+    errors[:image] << "should be less than 500KB" if image.size > 0.5.megabytes
+  end
 
 end
