@@ -28,7 +28,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
-# ---- stretch gems! ----#
 # Use ActiveModel has_secure_:password_digest
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
@@ -37,7 +36,6 @@ gem 'carrierwave', '~> 1.0'
 gem 'bootstrap'
 gem 'tether-rails'
 gem 'mini_magick'
-gem 'searchkick', '~> 1.1', '>= 1.1.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
