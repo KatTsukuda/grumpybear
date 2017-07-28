@@ -5,20 +5,38 @@
     <%= link_to "Delete", @user, method: :delete, data: {confirm: "Are you sure?"} %>
   <% end %>
 </h3>
-<p> Email: <%= @user.email %> </p>
-<p> Country: <%= @user.country %> </p>
-<p> Member since: <%= @user.created_at.strftime("%b. %d, %Y") %> </p>
 
-<h3>Current Campaigns</h3>
-<% @user.campaigns.each do |cpgn| %>
-  <li><%= cpgn.campaign_title %></li>
-  <li><%= cpgn.created_at.strftime("Created on: %b. %d, %Y") %></li>
-<% end %>
+<p class="user-info"> Email: <%= @user.email %> </p>
+<p class="user-info"> Country: <%= @user.country %> </p>
+<p class="user-info"> Member since: <%= @user.created_at.strftime("%b. %d, %Y") %> </p>
 
-<% if @user.campaigns.count == 0 %>
-  Start your first campaign!
-  <%= link_to image_tag("heavy-plus-sign.png", :alt => "Add New", :class => "add-new"), new_campaign_path(@user) %>
-<% else %>
-  <%= @user.campaigns.count %> current campaigns
-  <%= link_to "New Campaign", new_campaign_path(@user) %>
-<% end %>
+<h3>
+  Current Campaigns
+
+  <% if @user.campaigns.count == 0 %>
+    Start your first campaign!
+    <%= link_to image_tag("heavy-plus-sign.png", :alt => "Add New", :class => "add-new"), new_campaign_path(@user) %>
+  <% else %>
+    <% @user.campaigns.count %>
+    <%= link_to image_tag("heavy-plus-sign.png", :alt => "Add New", :class => "add-new"), new_campaign_path(@user) %>
+  <% end %>
+
+</h3>
+
+<table>
+  <% @user.campaigns.each do |cpgn| %>
+    <li><%= link_to cpgn.campaign_title, campaign_path(cpgn) %></li><br>
+    <small><%= cpgn.created_at.strftime("Created on: %b. %d, %Y") %></small><br><br>
+    <p>Category: <%= cpgn.category %></p>
+    <p>Target Goal: <%= number_with_delimiter(cpgn.target_signers_goal.to_i) %> signers</p>
+    <p>
+      <% if cpgn.action_takers.count == 0 %>
+        No signers yet.
+      <% elsif cpgn.action_takers.count == 1 %>
+        1 has signed to date.
+      <% else %>
+        <%= cpgn.action_takers.count %> have signed to date.
+      <% end %>
+    </p>
+  <% end %>
+</table>

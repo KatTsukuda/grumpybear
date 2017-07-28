@@ -7,7 +7,7 @@
 </h1>
 
 <div class="col-md-8 col-sm-6 col-xs-12">
-  <%= image_tag(@campaign.image_url.to_s, size: "100", alt: "Campaign Image") %>
+  <%= image_tag(@campaign.image_url.to_s, size: "100", alt: "Campaign Image") if @campaign.image? %>
 
   <section class="cmpgn-tgt">
     campaign target: <%= @campaign.target_name %>
