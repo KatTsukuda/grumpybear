@@ -2,7 +2,7 @@
   <ul class="nav-links">
     <% if current_user %>
       <li class="nav-item"><%= link_to "Home", root_path, :class=> "nav-link" %></li>
-      <li class="nav-item"><%= link_to image_tag('petition-icon.png', :alt => "Start a petition", :class => "petition-icon nav-link"), new_campaign_path(@user) %><%= link_to "Start a petition", new_campaign_path(@user) %></li>
+      <li class="nav-item"><%= link_to image_tag('petition-icon.png', :alt => "Start a petition", :class => "petition-icon nav-link"), new_campaign_path(@campaign) %><%= link_to "Start Campaign", new_campaign_path(@campaign) %></li>
 
       <li class="nav-item"><%= link_to "Campaigns", campaigns_path, :class=> "nav-link" %></li>
       <li class="nav-item"><%= link_to image_tag('bear-icon.png', :alt => "Profile", :class => "profile-icon nav-link"), user_path(current_user) %><%= link_to "Profile", user_path(current_user) %></li>

@@ -14,7 +14,7 @@
 <h3>
   Current Campaigns
   <% if current_user.campaigns == @user.campaigns %>
-    <%= link_to image_tag("heavy-plus-sign.png", :alt => "Add New", :class => "add-new"), new_campaign_path(@user) %>
+    <%= link_to image_tag("heavy-plus-sign.png", :alt => "Add New", :class => "add-new"), new_campaign_path(@campaign) %>
   <% end %>
 
 </h3>
@@ -23,13 +23,10 @@
   <div class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between">
       <% @user.campaigns.each do |cpgn| %>
-        <h5 class="mb-1"><%= link_to cpgn.campaign_title, campaign_path(cpgn) %></h5>
+        <h5><%= link_to cpgn.campaign_title, campaign_path(cpgn), :class => "cpgn-title" %></h5>
         <small><%= cpgn.created_at.strftime("Created on: %b. %d, %Y") %></small>
         <p>Category: <%= cpgn.category %></p>
         <p>Target Goal: <%= number_with_delimiter(cpgn.target_signers_goal.to_i) %> signers</p>
-        <div class="download-csv">
-          <%= link_to image_tag('csv-icon.png', :alt => "CSV download", :class => "csv-icon"), campaign_path(cpgn) + '.csv', {:format => :csv }  %>
-        </div>
         <p>
           <% if cpgn.action_takers.count == 0 %>
             <span class="badge badge-default badge-pill">No signers yet.</span>
@@ -39,6 +36,11 @@
             <span class="badge badge-default badge-pill"><%= cpgn.action_takers.count %> have signed.</span>
           <% end %>
         </p>
+        <div class="download-csv">
+          <% if current_user.campaigns == @user.campaigns %>
+            <%= link_to image_tag('csv-icon.png', :alt => "CSV download", :class => "csv-icon"), campaign_path(cpgn) + '.csv', {:format => :csv }  %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>

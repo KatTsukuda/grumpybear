@@ -119,6 +119,10 @@ h3.org_name, .campaign-title {
   text-align: left;
 }
 
+h5 {
+  text-align: left;
+}
+
 .tagline {
   text-align: center;
 }
@@ -184,7 +188,7 @@ small, .tagline {
 }
 
 input#campaign_image {
-  height: 100%;
+  width: 100%
 }
 
 /* special icons! */
