@@ -37,6 +37,7 @@ gem 'bootstrap'
 gem 'tether-rails'
 gem 'mini_magick'
 gem 'will_paginate', '~> 3.1.0'
+gem 'searchkick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
