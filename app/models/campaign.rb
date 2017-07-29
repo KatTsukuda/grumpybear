@@ -3,11 +3,6 @@ class Campaign < ApplicationRecord
   belongs_to :user
   has_many :action_takers
 
-  # carrierwave! image uploader gem :D
-  validates_presence_of :image
-  validate :image_size_validation
-  mount_uploader :image, ImageUploader
-
   validates :category,  presence: true, length: { maximum: 50 }
   validates :campaign_title,  presence: true, length: { maximum: 50 }
   validates :description,  presence: true, length: { maximum: 2000 }
@@ -22,6 +17,14 @@ class Campaign < ApplicationRecord
   # friendly id!
   extend FriendlyId
   friendly_id :campaign_title
+
+  # will_paginate! > set global per page
+  self.per_page = 5
+
+  # carrierwave! image uploader gem :D
+  validates_presence_of :image
+  validate :image_size_validation
+  mount_uploader :image, ImageUploader
 
   private
   def image_size_validation

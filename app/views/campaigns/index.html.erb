@@ -2,10 +2,11 @@
 
 <div class="campaigns-list">
   <% @campaigns.each do |cmpgn| %>
-   <h2><%= link_to cmpgn.campaign_title, campaign_path(cmpgn) %></h2>
+   <h3><%= link_to cmpgn.campaign_title, campaign_path(cmpgn), :class => "campaign-title" %></h3>
     <p>
       <%= image_tag(cmpgn.image_url.to_s, width: '300px') %>
-      Category: <%= cmpgn.category %>
     </p>
   <% end %>
 </div>
+
+<%= will_paginate @posts %>
