@@ -1,5 +1,4 @@
 class Campaign < ApplicationRecord
-
   belongs_to :user
   has_many :action_takers
 
@@ -18,15 +17,13 @@ class Campaign < ApplicationRecord
   extend FriendlyId
   friendly_id :campaign_title
 
-  # will_paginate! > set global per page
-  self.per_page = 5
-
   # carrierwave! image uploader gem :D
   validates_presence_of :image
   validate :image_size_validation
   mount_uploader :image, ImageUploader
 
-
+  # searchkick!
+  searchkick callbacks: :async
 
   private
   def image_size_validation
