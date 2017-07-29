@@ -51,20 +51,23 @@ div.navbar {
   border-top: 1px solid;
   border-bottom: 1px solid;
   border-radius: 0px 0px 0px 0px;
-  border-color: purple;
-  background-color: #EBE0F0;
+  border-color: #2B3A42;
+  background-color: #FFF;
 }
 
 /* general forms! */
 .form {
+  padding-top: 15px;
   border: 1px solid;
-  border-color: #ad4574;
+  border-color: #3F5765;
   text-align: center;
+  background-color: #EFEFEF;
 }
 
 textarea {
   width: 90%;
   height: 200px;
+  border-color: #BDD4DE;
 }
 
 input, select, .submit-btn {
@@ -77,6 +80,7 @@ input, select, .submit-btn {
 
 input {
   border: 1px solid;
+  border-color: #BDD4DE;
   height: 35px;
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
@@ -88,15 +92,16 @@ input#campaign_image {
 
 .submit-btn, select {
   border: 1px solid;
+  border-color: #BDD4DE;
 }
 
 .submit-btn {
-  margin-top: 15px;
-  background-color: #ae6d8b;
+  margin: 15px 0;
+  background-color: #2B3A42;
   color: #fff;
-  border-color: #ad4574;
+  border-color: #BDD4DE;
   font-family: 'Poppins', sans-serif;
-  padding: 8px 0;
+  height: 50px;
 }
 
 div.form-label {
@@ -149,7 +154,7 @@ li, a {
 /* campagins and action forms! */
 .action-form {
   float: right;
-  background-color: #fcf6e3;
+  background-color: #EFEFEF;
   padding-left: 25px;
 }
 
@@ -192,7 +197,7 @@ p.user-info, small, .tagline {
 }
 
 small, .tagline {
-  color: #ae6d8b;
+  color: #2B3A42;
 }
 
 input#campaign_image {
