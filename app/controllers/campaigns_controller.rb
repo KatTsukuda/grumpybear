@@ -3,7 +3,15 @@ class CampaignsController < ApplicationController
   before_action :campaign_owner, only: [:edit, :update, :destroy]
 
   def index
-    @campaigns = Campaign.paginate(:page => params[:page])
+    search = params[:term].present? ? params[:term] : nil
+
+    @campaigns = if search
+      Campaign.search params[:search],
+               misspellings: {edit_distance: 2},
+               fields: [{campaign_title: :word_start}, {description: :word_start}, :token]
+    else
+      @campaigns = Campaign.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+    end
   end
 
   def new
