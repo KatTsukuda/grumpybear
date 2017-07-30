@@ -17,5 +17,13 @@
 //= require turbolinks
 //= require_tree .
 
-// progressbar.js@1.0.0 version is used
-// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
+jQuery(function() {
+  $('textarea').keyup(charCount);
+  $('textarea').keydown(charCount);
+
+  function charCount() {
+      var numOfChar = $(this).val().length;
+      $('#characters').text(numOfChar);
+  }
+  
+})

@@ -1,5 +1,8 @@
 <div class="col-md-8 col-md-offset-2">
   <%= form_tag(campaigns_path, :method => "get") do %>
+  <% if @campaigns.empty? %>
+    <p>No results found</p>
+  <% end %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", description: nil, class: "submit-btn" %>
   <% end %>
