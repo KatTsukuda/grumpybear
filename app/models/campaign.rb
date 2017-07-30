@@ -23,7 +23,7 @@ class Campaign < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   # searchkick!
-  searchkick callbacks: :async
+  searchkick 
 
   private
   def image_size_validation

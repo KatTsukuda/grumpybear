@@ -6,7 +6,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <script>
+    var daysText = "days",
+         hoursText = "hours",
+         minsText = "minutes",
+         secsText = "seconds",
+         cdText = "Until we meet Arctic oil in court";
+    </script>
   </head>
 
   <header><h1 class="header">Grumpy Bear</h1></header>
@@ -24,7 +30,102 @@
   </div>
   <body class="container">
     <%= yield %>
+    <script>
+
+		// Countdown
+
+		document.getElementById('countdown-days-txt').innerHTML = daysText;
+		document.getElementById('countdown-hours-txt').innerHTML = hoursText;
+		document.getElementById('countdown-minutes-txt').innerHTML = minsText;
+		document.getElementById('countdown-seconds-txt').innerHTML = secsText;
+		document.getElementById('countdown-txt').innerHTML = cdText;
+
+		var _second = 1000;
+		var _minute = _second * 60;
+		var _hour = _minute * 60;
+		var _day = _hour * 24;
+		var timer, countTo, i, st, lt, from, fromTwo, to, countDifference;
+
+		// Get server date (savethearctic.org should follow GMT+002)
+		var xmlHttp, random;
+		function srvTime(){
+			try { xmlHttp = new XMLHttpRequest(); } // FF, Opera, Safari, Chrome
+			catch (err1) {
+				try { xmlHttp = new ActiveXObject('Msxml2.XMLHTTP'); } // IE
+				catch (err2) {
+					try { xmlHttp = new ActiveXObject('Microsoft.XMLHTTP'); }
+					catch (eerr3) { alert("AJAX not supported"); } // Unlikely
+				}
+			}
+			xmlHttp.open('HEAD',window.location.href.toString()+"?"+Math.random(),false);
+			xmlHttp.setRequestHeader("Content-Type", "text/html");
+			xmlHttp.send('');
+			return xmlHttp.getResponseHeader("Date");
+		}
+
+		st = srvTime();
+		lt = new Date();
+		from = new Date(st);
+		to = 1510560000000; // new Date('13/11/2017 9:00') at GMT+1 DST
+
+		var countDifference = to - from;
+		if (countDifference < 0) {}
+
+		var days = Math.floor(countDifference / _day);
+		var hours = Math.floor((countDifference % _day) / _hour);
+		var minutes = Math.floor((countDifference % _hour) / _minute);
+		var seconds = Math.floor((countDifference % _minute) / _second);
+
+		if(days < 100) { days = "0"+days; } else {
+			if(days < 10) { days = "00"+days; }
+		}
+		if(hours < 10) { hours = "0"+hours; }
+		if(minutes < 10) { minutes = "0"+minutes; }
+		if(seconds < 10) { seconds = "0"+seconds; }
+
+		document.getElementById('countdown-days').innerHTML = days;
+		document.getElementById('countdown-hours').innerHTML = hours;
+		document.getElementById('countdown-minutes').innerHTML = minutes;
+		document.getElementById('countdown-seconds').innerHTML = seconds;
+
+		var plusMe = new Date(st);
+		function refreshCD() {
+
+			plusMe = new Date(plusMe.getTime() + 1000);
+
+			var countDifference = to - plusMe;
+			if (countDifference < 0) {}
+
+			days = Math.floor(countDifference / _day);
+			hours = Math.floor((countDifference % _day) / _hour);
+			minutes = Math.floor((countDifference % _hour) / _minute);
+			seconds = Math.floor((countDifference % _minute) / _second);
+
+			if(days < 100) { days = "0"+days; } else {
+				if(days < 10) { days = "00"+days; }
+			}
+			if(hours < 10) { hours = "0"+hours; }
+			if(minutes < 10) { minutes = "0"+minutes; }
+			if(seconds < 10) { seconds = "0"+seconds; }
+
+			document.getElementById('countdown-days').innerHTML = days;
+			document.getElementById('countdown-hours').innerHTML = hours;
+			document.getElementById('countdown-minutes').innerHTML = minutes;
+			document.getElementById('countdown-seconds').innerHTML = seconds;
+		}
+
+		timer = setInterval(function(){ refreshCD() }, 1000);
+	</script>
   </body>
 
-  <footer class="footer">© 2017 Grumpy Bear</footer>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <footer class="footer">© 2017 Grumpy Bear <div class="fb-share-button" data-href="https://grumpybear.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrumpybear.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div></footer>
 </html>
