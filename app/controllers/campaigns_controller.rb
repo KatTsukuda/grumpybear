@@ -7,7 +7,6 @@ class CampaignsController < ApplicationController
 
     if params[:search].present?
       @campaigns = Campaign.search params[:search],
-                   misspellings: {edit_distance: 2},
                    fields: [:campaign_title, :description]
     else
       @campaigns = Campaign.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
