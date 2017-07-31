@@ -67,6 +67,8 @@ textarea {
   width: 90%;
   height: 200px;
   border-color: #BDD4DE;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
 }
 
 input, select, .submit-btn {
@@ -75,6 +77,7 @@ input, select, .submit-btn {
   width: 90%;
   border-style: hidden;
   background: #fff;
+  font-size: 14px;
 }
 
 input {
@@ -127,8 +130,13 @@ h1.header {
   font-size: 55px;
 }
 
-h3.org_name, .campaign-title, .org_name {
+.campaign-title, .org_name {
   text-align: left;
+}
+
+h3.org_name {
+  text-align: left;
+  font-size: 35px;
 }
 
 h5 {
@@ -157,6 +165,7 @@ li, a {
   float: right;
   background-color: #EFEFEF;
   padding-left: 25px;
+  padding-top: 15px;
 }
 
 .CTA {
@@ -197,12 +206,26 @@ p.user-info, small, .tagline {
   font-family: 'Muli', sans-serif;
 }
 
+p.user-info {
+  font-size: 15px;
+}
+
 small {
   color: #2B3A42;
+  font-size: 12px;
 }
 
 input#campaign_image {
   width: 100%
+}
+
+p {
+  font-size: 15px;
+}
+
+span.badge.badge-default.badge-pill {
+  font-size: 12px;
+  padding: 10px;
 }
 
 /* special icons! */
@@ -233,6 +256,8 @@ input#campaign_image {
   padding:20px 0;
   font-family: 'Muli', sans-serif;
   text-align: center;
+  font-size: 15px;
+  padding-top: 50px;
 }
 
 /* homepage-intro */
@@ -259,4 +284,11 @@ input#campaign_image {
   text-align: center;
   margin-bottom: 15px;
   font-family: 'Muli', sans-serif;
+}
+
+/* pagination! */
+
+.paginate {
+  font-size: 20px;
+  margin-top: 50px;
 }
