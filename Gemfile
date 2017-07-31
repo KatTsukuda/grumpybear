@@ -39,7 +39,6 @@ gem 'mini_magick'
 gem 'will_paginate', '~> 3.1.0'
 gem 'searchkick'
 gem 'aws-sdk', '~> 2'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
