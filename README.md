@@ -1,4 +1,7 @@
 # Grumpy Bear
+![Grumpy Bear](https://grumpybear.herokuapp.com/assets/grumpybear-62a9eb9dab3af1323fa016d4d3ec95657b6089d95e80eb56dfd3f0eaa63733e6.png "Grumpy Bear")
+
+Reference-style: 
 Campaign builder platform for progressive organizations to mobilize for action.
 
 
