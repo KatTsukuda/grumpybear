@@ -18,7 +18,7 @@
  *= require_tree .
  *= require_self
  */
- 
+
  @import 'bootstrap';
 
  /* FONTS!
@@ -41,7 +41,7 @@ ul.nav-links, .nav-links li a {
 }
 
 li.nav-item {
-  margin: 0 50px;
+  margin: 0 30px;
 }
 
 div.navbar {
@@ -137,6 +137,8 @@ h5 {
 
 .tagline {
   text-align: center;
+  font-size: 14px;
+  color: #ae6d8b;
 }
 
 /* lists! */
@@ -195,7 +197,7 @@ p.user-info, small, .tagline {
   font-family: 'Muli', sans-serif;
 }
 
-small, .tagline {
+small {
   color: #2B3A42;
 }
 
@@ -209,11 +211,15 @@ input#campaign_image {
 }
 
 .profile-icon {
-  height: 30px;
+  height: 45px;
+  margin-bottom: -15px;
+  margin-right: -10px;
 }
 
 .petition-icon {
-  height: 50px;
+  height: 60px;
+  margin-bottom: -22px;
+  margin-right: -10px;
 }
 
 .csv-icon {
