@@ -5,12 +5,14 @@
     <%= link_to "Delete", @campaign, method: :delete, data: {confirm: "Are you sure?"} %>
   <% end %>
 </h1>
+<p><%= link_to @campaign.user.org_name, user_path(@campaign.user) %>
 
 <div class="col-md-8 col-sm-6 col-xs-12">
   <%= image_tag(@campaign.image_url.to_s, height: '300', alt: "Campaign Image", class: "campaign-image") if @campaign.image? %>
 
   <section class="cmpgn-tgt">
     campaign target: <%= @campaign.target_name %>
+    <div class="fb-share-button" data-href="https://grumpybear.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrumpybear.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div>
   </section>
 
   <section class="cmpgn-descrip">

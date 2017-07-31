@@ -17,7 +17,7 @@
 //= require turbolinks
 //= require_tree .
 
-jQuery(function() {
+document.addEventListener("turbolinks:load", function() {
   $('textarea').keyup(charCount);
   $('textarea').keydown(charCount);
 
@@ -25,5 +25,4 @@ jQuery(function() {
       var numOfChar = $(this).val().length;
       $('#characters').text(numOfChar);
   }
-  
-})
+});

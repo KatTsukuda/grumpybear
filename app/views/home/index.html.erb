@@ -1,3 +1,13 @@
-<h1>Under construction</h1>
-
-<%= image_tag("grumpybear.png", height: '300px') %>
+<div class="container">
+  <div class="row col-md-offset-1">
+    <div class="col-md-4">
+      <%= image_tag("grumpybear.png", height: '300px') %>
+    </div>
+    <div class="col-md-6">
+      <p class="about">
+        Grumpy Bear is a social change network of progressive organizations, mobilizing a for better future. Want to help make progressive change happen? Just sign one of our campaigns.
+        <%= button_to "Take Action", campaigns_path, :method => :get, :class => "hp-btn" %>
+      </p>
+    </div>
+  </div>
+</div>
