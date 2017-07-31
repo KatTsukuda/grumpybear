@@ -118,11 +118,6 @@ select {
 }
 
 /* headers! */
-.grumpybear-logo {
-  width: 350px;
-  margin-top: 50px;
-}
-
 h1, h2, h3, h4, h5 {
   font-family: 'Poppins', sans-serif;
   text-align: center;
@@ -133,6 +128,7 @@ h1.header {
   font-family: 'Nixie One', cursive;
   text-transform: capitalize;
   font-size: 55px;
+  margin-top: 50px;
 }
 
 .campaign-title, .org_name {
