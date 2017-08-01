@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170727213712) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "action_taker_id"
+    t.string "slug"
     t.string "image"
     t.index ["action_taker_id"], name: "index_campaigns_on_action_taker_id"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
