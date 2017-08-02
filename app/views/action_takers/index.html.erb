@@ -1,5 +1,6 @@
-<% @action_takers.each do |action| %>
-  <p><%= action.first_name %> <%= action.last_name %>, <%= action.email %> action_id: <%= action.id %> campaign_id: <%= action.campaign_id %></p>
+<% @action_takers.each do |signer| %>
+  <div class="action-takers">
+    <p><%= signer.first_name %> <%= signer.last_name %>, <%= signer.country %></p>
+    <small>Signed <%= ((Time.now - signer.created_at)/(60*60)*10).ceil/10 %> hours ago</small>
+  </div>
 <% end %>
-
-<%= link_to "CSV for Campaign", {:format => :csv } %>

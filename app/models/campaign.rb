@@ -15,7 +15,7 @@ class Campaign < ApplicationRecord
 
   # friendly id!
   extend FriendlyId
-  friendly_id :campaign_title
+  friendly_id :campaign_title, use: [:slugged, :finders]
 
   # carrierwave! image uploader gem :D
   validates_presence_of :image
@@ -23,7 +23,7 @@ class Campaign < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   # searchkick!
-  searchkick 
+  searchkick
 
   private
   def image_size_validation

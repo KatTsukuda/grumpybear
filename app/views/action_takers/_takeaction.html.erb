@@ -1,4 +1,4 @@
-<%= form_for @action_taker do |form| %>
+<%= form_for [@campaign, @action_taker] do |form| %>
   <%= form.hidden_field :campaign_id, :value => @campaign.id %>
   <div class="form-label"><%= form.label :email %></div>
   <%= form.text_field :email %>
@@ -9,7 +9,7 @@
   <div class="form-label"><%= form.label "Phone" %></div>
   <%= form.phone_field :phone %>
   <div class="form-label"><%= form.label "Country" %></div>
-  <%= render partial: '/users/country' %>
+  <%= render partial: '/action_takers/country' %>
   <div class="form-label"><%= form.label "Zip Code" %></div>
   <%= form.text_field :zip_code %>
 

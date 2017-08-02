@@ -34,7 +34,7 @@ class CampaignsController < ApplicationController
 
   def update
     set_campaign
-      if set_campaign.update campaign_params
+      if set_campaign.update(campaign_params)
         redirect_to @campaign
       end
   end
