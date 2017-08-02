@@ -33,4 +33,11 @@ class ActionTaker < ApplicationRecord
   def name
     "#{first_name} #{last_name}"
   end
+
+  # def action_taken
+  #   Time.now
+  #   # Time.zone = "Pacific Time (US & Canada)"
+  #   # t = Time.zone.now
+  #   # t.strftime "%I:%M:%S %p"
+  # end
 end

@@ -1,4 +1,6 @@
 <% @action_takers.each do |signer| %>
-  <p><%= signer.first_name %> <%= signer.last_name %></p>
-  <p><%= signer.country %></p>
+  <div class="action-takers">
+    <p><%= signer.first_name %> <%= signer.last_name %>, <%= signer.country %></p>
+    <small>Signed <%= ((Time.now - signer.created_at)/(60*60)*10).ceil/10 %> hours ago</small>
+  </div>
 <% end %>
